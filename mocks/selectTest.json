@@ -1,0 +1,43 @@
+{
+  "categories": [
+    { "key": "book", "txt": "Book" },
+    { "key": "electronics", "txt": "Electronics" },
+    { "key": "clothing", "txt": "Clothing" },
+    { "key": "sports", "txt": "Sports" }
+  ],
+  "items": [
+    { "pKey": "book", "key": "pen", "txt": "Pen" },
+    { "pKey": "book", "key": "notebook", "txt": "Notebook" },
+    { "pKey": "book", "key": "eraser", "txt": "Eraser" },
+
+    { "pKey": "electronics", "key": "laptop", "txt": "Laptop" },
+    { "pKey": "electronics", "key": "phone", "txt": "Phone" },
+    { "pKey": "electronics", "key": "tablet", "txt": "Tablet" },
+
+    { "pKey": "clothing", "key": "shirt", "txt": "Shirt" },
+    { "pKey": "clothing", "key": "pants", "txt": "Pants" },
+    { "pKey": "clothing", "key": "hat", "txt": "Hat" },
+
+    { "pKey": "sports", "key": "soccer", "txt": "Soccer Ball" },
+    { "pKey": "sports", "key": "basketball", "txt": "Basketball" },
+    { "pKey": "sports", "key": "tennis", "txt": "Tennis Racket" }
+  ],
+  "subitems": [
+    { "pKey": "pen", "key": "blue-pen", "txt": "Blue Pen" },
+    { "pKey": "pen", "key": "red-pen", "txt": "Red Pen" },
+
+    { "pKey": "notebook", "key": "spiral-notebook", "txt": "Spiral Notebook" },
+
+    { "pKey": "laptop", "key": "gaming-laptop", "txt": "Gaming Laptop" },
+    { "pKey": "laptop", "key": "ultrabook", "txt": "Ultrabook" },
+
+    { "pKey": "shirt", "key": "t-shirt", "txt": "T-shirt" },
+    { "pKey": "shirt", "key": "dress-shirt", "txt": "Dress Shirt" },
+
+    { "pKey": "soccer", "key": "size-5-ball", "txt": "Size 5 Ball" },
+    { "pKey": "soccer", "key": "futsal-ball", "txt": "Futsal Ball" },
+
+    { "pKey": "tennis", "key": "wilson-racket", "txt": "Wilson Racket" },
+    { "pKey": "tennis", "key": "yonex-racket", "txt": "Yonex Racket" }
+  ]
+}
