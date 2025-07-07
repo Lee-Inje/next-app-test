@@ -1,4 +1,4 @@
-import { Button, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
+import { Button, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, SelectChangeEvent, TextField, TextareaAutosize } from "@mui/material";
 import { Property, PROPERTY_TYPE,  TEST_PROPERTY,  usePropertyStore } from "./propertyStore";
 import { useEffect } from "react";
 
@@ -18,11 +18,12 @@ function FormFactory( {p} : {p : Property} ) {
                 p.type == PROPERTY_TYPE.COMBO ? 
                     <Select value={p.extVal} onChange={(e:SelectChangeEvent) => setValue(e.target.value)}>
                     {
-                        p.options?.map((t) => (<MenuItem value={t.key}>{t.txt}</MenuItem>))
+                        p.options?.map((t) => (<MenuItem key={t.key} value={t.key}>{t.txt}</MenuItem>))
                     }
                     </Select>:
                 p.type == PROPERTY_TYPE.COMBO_YN ? <Select value={p.extVal} onChange={(e:SelectChangeEvent) => setValue(e.target.value)}><MenuItem value="Y">Y</MenuItem><MenuItem value="N">N</MenuItem></Select> :
-                <div>알수없는 타입</div>        
+                p.type == PROPERTY_TYPE.TEXTAREA ? <TextareaAutosize value={p.extVal} onChange={(e) => setValue(e.target.value)} {...p.ext}></TextareaAutosize> :
+                <div>알수없는 타입</div>
             }
             <FormHelperText id="my-helper-text">key:{p.extAttr} id:{p._id}</FormHelperText>
         </FormControl>

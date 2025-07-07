@@ -22,6 +22,7 @@ export default function PropertyPage() {
               case "COMBOYN" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO_YN}); return;
               case "COMBOSYS1" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO , options:commCd.ALLOC_STAT_CD}); return;
               case "COMBOSYS2" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO , options:commCd.EXAM_STAT}); return; 
+              case "TEXTAREA" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.TEXTAREA , ext:{minRows:3,placeholder:"Max 4Rows", style:{width:'100%'}, ariaLabel:"minimum height"}}); return;
               default : return;
             }
         }
@@ -48,6 +49,7 @@ export default function PropertyPage() {
               <MenuItem value="COMBOYN">ComboYn</MenuItem>
               <MenuItem value="COMBOSYS1">배정상태 코드</MenuItem>
               <MenuItem value="COMBOSYS2">시험상태</MenuItem>
+              <MenuItem value="TEXTAREA">TextArea</MenuItem>
             </Select>
           </FormControl>
           <Button onClick={ addProperty }>추가</Button>
