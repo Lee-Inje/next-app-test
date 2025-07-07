@@ -1,4 +1,25 @@
 {
+  "menu" : [
+        { 
+            "id" : "property",
+            "name" : "속성창",
+            "path" : "/property",
+            "icon" : "home"
+        },
+        {
+            "id" : "selectBoxTest",
+            "name" : "api 연동 콤보박스",
+            "path" : "/selectBoxTest",
+            "icon" : "home"
+        },
+        {
+            "id" : "form",
+            "name" : "입력폼",
+            "path" : "/form",
+            "icon" : "home"
+        }
+        
+    ],
   "categories": [
     { "key": "book", "txt": "Book" },
     { "key": "electronics", "txt": "Electronics" },
