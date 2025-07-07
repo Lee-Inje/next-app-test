@@ -12,17 +12,15 @@ export default function PropertyPage() {
         const append = usePropertyStore((s) => s.append);
         const clear = usePropertyStore((s) => s.clear);
         const commCd = COMMON_CODE;
-    
         const [type , setType] = useState<string>()
-    
         const addProperty = () => {
             switch(type) {
-              case "TEXT" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.TEXT}); return; 
-              case "COMBO" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.COMBO , options:[{key:'aa1' , txt : '항목1'} , {key:'aa2' , txt : '항목2'} ] }); return; 
+              case "TEXT" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.TEXT}); return;
+              case "COMBO" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.COMBO , options:[{key:'aa1' , txt : '항목1'} , {key:'aa2' , txt : '항목2'} ] }); return;
               case "COMBOYN" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO_YN}); return;
               case "COMBOSYS1" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO , options:commCd.ALLOC_STAT_CD}); return;
-              case "COMBOSYS2" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO , options:commCd.EXAM_STAT}); return; 
-              case "TEXTAREA" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.TEXTAREA , ext:{minRows:3,placeholder:"Max 4Rows", style:{width:'100%'}, ariaLabel:"minimum height"}}); return;
+              case "COMBOSYS2" : append({extAttr:'newItem' , extVal : 'Y' , type : PROPERTY_TYPE.COMBO , options:commCd.EXAM_STAT}); return;
+              case "TEXTAREA" : append({extAttr:'newItem' , extVal : '' , type : PROPERTY_TYPE.TEXTAREA , ext:{rows:4, label:"TextArea", placeholder:"Min 4Rows"}}); return;
               default : return;
             }
         }
@@ -32,7 +30,7 @@ export default function PropertyPage() {
         <Grid size={2} >
           <Grid size={12} >
             <PropertyBag/>
-          </Grid> 
+          </Grid>
         </Grid>
         <div>{JSON.stringify(items)}</div>
         <div style={{width: '50%' , marginTop:'20px'}}>

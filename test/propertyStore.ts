@@ -13,7 +13,7 @@ export interface Property extends WithId {
     extVal: string;
     isDisable?: boolean;
     options? : {key: string , txt: string}[];
-    ext? : {};
+    ext? : object;
 }
 
 export const propertyStore = createListStore<Property>();

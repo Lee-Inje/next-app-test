@@ -40,7 +40,7 @@ export function createListStore<T extends WithId>() {
         set((state) => {
           const idx = state.items.findIndex((item) => item._id === id);
           if (idx !== -1) {
-            (state.items[idx] as any)[key] = value;
+            (state.items[idx] as Partial<T>)[key] = value;
           }
         }),
       updateItem: (id, partial) =>
