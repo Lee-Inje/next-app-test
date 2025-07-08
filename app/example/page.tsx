@@ -649,11 +649,11 @@ const onSubmit = async (data: FormData) => {
               title="알림"
               onClose={() => setOpen(false)}
               onConfirm={() => {
-                alert('확인 클릭됨');
+                alert('등록 클릭됨');
                 setOpen(false);
               }}
-              confirmText="예"
-              cancelText="아니오"
+              confirmText="등록"
+              cancelText="취소"
             >
               <Typography>정말 이 작업을 실행하시겠습니까?</Typography>
             </CustomDialog>
