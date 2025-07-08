@@ -5,21 +5,40 @@ import { createFormObjectStore } from "@/test/FormEx/FormStore";
 import useObjectFormState, {  useListFormState  , typeOfTableForm, useGridFormState} from "@/test/FormState";
 import SelectBoxTest from "@/test/SelectBox/selectBox";
 import { Box, Button, FormControl, FormControlLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
-import { DataGrid, GridCellParams, GridColDef, GridEventListener, GridEventLookup, GridEvents, GridRowParams } from "@mui/x-data-grid";
+import { DataGrid, GridCellParams, GridColDef, GridEventListener, GridEventLookup, GridEvents, GridRenderCellParams, GridRowParams } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
+import DateRangeInput, { DateRangeValue } from "../example/components/DateRangeInput";
+
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 
 // grid type 정의 
 const columns : GridColDef<any>[] = [
     { field: 'pKey', headerName: '부모키', width: 70 },
     { field: 'key', headerName: '키', width: 150 },
     { field: 'txt', headerName: '텍스트', width: 100 },
-    { field: 'bbb', headerName: '추가버튼', width: 100 , renderCell(params) { return(<Button onClick={() => alert('버튼클릭')}>버튼</Button>) },  },
-    ] as const;;
+    { field: 'bbb', headerName: '추가버튼', width: 100 , renderCell(params) { return(<Button variant="contained" size="small" onClick={() => alert('버튼클릭')}>버튼</Button>) },  },
+    { field: 'edit', headerName: '수정', width: 100, sortable: false, filterable: false, align: 'center', headerAlign: 'center', 
+        renderCell: (params: GridRenderCellParams) => (
+            <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                onClick={() => {
+                    console.log('수정버튼 클릭 :', params.row);
+                }}
+            >
+                수정
+            </Button>
+        ),
+    },
+    ] as const;
+    
 type Item = typeOfTableForm<typeof columns>;
 // grid type 정의 //
 
 export default function TestFormPage() {
-
+      
     const [info , setInfo] = useState('');
     const grid = useGridFormState<Item>([]); 
     
@@ -49,7 +68,10 @@ export default function TestFormPage() {
 
 
    //  test //
-   const consolLog = (eventType:string , params : any) => setInfo( eventType + ' : ' + JSON.stringify(params));
+   const consolLog = (eventType:string , params : any) => {
+    setInfo( '');    
+    setInfo( eventType + ' : ' + JSON.stringify(params));
+   } 
 
    const onCellClick = (params : GridCellParams) => consolLog('onCellClick' , [params.id , params.colDef , params.field]);
    const onRowDoubleClick = (params : any) => consolLog('onRowDoubleClick' ,params);
@@ -58,8 +80,11 @@ export default function TestFormPage() {
    
   return (
     <div>
+        
         <div style={{ display: 'flex', justifyContent:"center", alignItems :"center", height: '50vh' , width:"100%" , gap: '16px'}}>
-            <Box sx={{width:'700px'}}>
+
+            <Box sx={{width:'100%', maxWidth:'1000px'}}>
+                
                 <DataGridEx 
                     grid={grid} 
                     columns={columns} 
@@ -68,6 +93,7 @@ export default function TestFormPage() {
                     onRowClick={ onRowClick }
                 />
             </Box>
+            
         </div>
         <div>{grid.paginationModel.page} {grid.paginationModel.pageSize}</div>
         <div>{info}</div>

@@ -1,5 +1,5 @@
 {
-  "name": "next-app4",
+  "name": "next-app-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,15 +12,23 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@mui/material": "^7.1.2",
+    "@hookform/resolvers": "^5.1.1",
+    "@mui/icons-material": "^7.2.0",
+    "@mui/material": "^7.2.0",
     "@mui/x-data-grid": "^8.6.0",
+    "@mui/x-date-pickers": "^8.6.0",
+    "date-fns": "^4.1.0",
+    "dayjs": "^1.11.13",
     "immer": "^10.1.1",
     "json-server": "^0.17.3",
     "mitt": "^3.0.1",
     "next": "15.3.4",
     "react": "^19.0.0",
+    "react-date-range": "^2.0.1",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.60.0",
     "uuid": "^11.1.0",
+    "yup": "^1.6.1",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
@@ -28,6 +36,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
+    "@types/react-date-range": "^1.4.10",
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
     "eslint": "^9",
